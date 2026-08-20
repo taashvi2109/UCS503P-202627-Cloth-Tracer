@@ -21,8 +21,6 @@ ClothTracer is a digital laundry management system designed to improve laundry r
 - AI-based image matching for unidentified clothes
 - Easier identification of misplaced clothes
 - Laundry collection date notifications
-
-  
 ## Technology Stack
 
 - **React** – Student & Admin Interface
