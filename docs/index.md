@@ -1,40 +1,48 @@
-﻿![Tiet Logo](assets/tiet-logo.svg){ .tiet-logo }
+![TIET Logo](assets/tiet-logo.svg){ .tiet-logo }
 
 **UCS503: Software Engineering (Project)**  
 **TIET Patiala**
 
-# The Sum Function in C++
+# ClothTracer
 
-**Author(s)**:
+### Smart Digital Laundry Management System
 
-`(RGB)` Raghav B. Venkataramaiyer `<bv.raghav -at-
-thapar -dot- edu>`
+ClothTracer is a digital laundry management system designed to improve laundry record management, accountability, and complaint resolution. It works alongside the existing laundry process by maintaining digital records linked to the laundry slip number and clothing photos.
 
-This project creates a sum function in c++ as a sample
-to illustrate how to compile a shared library and
-distribute it for use along with the binary.
+## Key Features
+-QR based identification
+- Digital laundry record management
+- Laundry slip number-based identification
+- Student and Admin interfaces
+- Clothes photo storage
+- Photo-based complaint submission
+- Complaint management
+- AI-based image matching for unidentified clothes
+- Easier identification of misplaced clothes
+- Laundry collection date notifications
 
-## Installation
+## Technology Stack
 
-``` shell
-make -C code
-```
+- **React** – Student & Admin Interface
+- **Node.js + Express** – Backend & APIs
+- **MongoDB** – User & Laundry Records
+- **QR Code** – Laundry Identification
+- **Cloud Storage** – Clothes Photos
+- **AI Image Matching** – Identification of unidentified clothes
+- **Image Embedding Model** – Photo Comparison
 
-This will create create a folder `dist` in `code`
-folder, with following contents
+## Team
 
-```
-dist
- +-lib
- |  \-libbvr_math.so
- +-bin
-    \-run
-```
+**Team Matrix: 3C5A**
 
-## Usage
+| Name | Roll Number |
+|---|---|
+| Minkal | 1024030675 |
+| Taashvi | 1024030681 |
+| Anshika | 1024030689 |
 
-``` shell
-cd code
-export LD_LIBRARY_PATH=dist/lib
-./dist/bin/run
-```
+
+## Course
+
+**Software Engineering Project — UCS503**  
+**2026–27 ODD**
