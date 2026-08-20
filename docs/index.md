@@ -11,15 +11,18 @@ ClothTracer is a digital laundry management system designed to improve laundry r
 
 ## Key Features
 
+- QR based identification
 - Digital laundry record management
-- QR-based laundry identification
+- Laundry slip number-based identification
 - Student and Admin interfaces
-- Laundry status tracking
 - Clothes photo storage
-- AI-based image matching for unidentified clothes
-- Image comparison using embedding models
+- Photo-based complaint submission
 - Complaint management
-- 
+- AI-based image matching for unidentified clothes
+- Easier identification of misplaced clothes
+- Laundry collection date notifications
+
+  
 ## Technology Stack
 
 - **React** – Student & Admin Interface
