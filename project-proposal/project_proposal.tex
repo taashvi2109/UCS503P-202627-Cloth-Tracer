@@ -1,0 +1,311 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% -----------------------------------------------------
+% bvraghav-tiet-ucs503p-article.sty
+% -----------------------------------------------------
+
+% Variable: Lab Instructor
+\makeatletter \newcommand{\BvrSetLabInstructor}[1]{%
+  \gdef\Bvr@LabInstructor{#1}}
+% default
+\newcommand{\Bvr@LabInstructor}{Dr. Raghav %
+  B. Venkataramaiyer}
+% public accessor
+\newcommand{\BvrLabInstructorValue}{\Bvr@LabInstructor}
+\makeatother
+
+% Add subtitle
+\usepackage{titling}
+% -- Set title bold
+\pretitle{\begin{center}\bfseries\fontsize{18bp}{18bp}\selectfont}
+\makeatletter
+\newcommand{\BvrSubtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip 0.5em}%
+}
+\makeatother
+
+% Hints in the section title(s)
+\newcommand{\BvrHint}[1]{%
+  {\normalfont\normalsize\itshape\hfill #1}}
+
+% -----------------------------------------------------
+
+\title{Cloth Tracer: Smart Digital Laundry Management System}
+
+\BvrSetLabInstructor{Dr. Raghav B. Venkataramaiyer}
+
+\BvrSubtitle{%
+  Project Proposal for UCS503P  \\
+  Submitted to: \BvrLabInstructorValue \\ \bfseries
+  Thapar Institute of Engineering and Technology% 
+}
+
+\author{
+  Minkal Goyal, CSED%
+  \thanks{Roll No: \texttt{1024030675}, %
+    Email: \texttt{mminkal\_be24@thapar.edu}}
+  \and 
+  Taashvi Aggarwal, CSED%
+  \thanks{Roll No: \texttt{1024030681}, %
+    Email: \texttt{taggarwal\_be24@thapar.edu}}
+\and 
+  Anshika Bansal, CSED%
+  \thanks{Roll No: \texttt{1024030689}, %
+    Email: \texttt{abansal5\_be24@thapar.edu}}
+}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Higher-order goal%
+  \BvrHint{\ldots secondary framing}}
+This project aims to improve accountability and complaint resolution in hostel laundry management by supporting the existing laundry process with a digital record system.
+
+The immediate engineering objective is to reduce the difficulty of identifying misplaced clothes, maintaining records and resolving complaints through a simple and practical web-based solution
+
+\section{Time-to-value %
+\BvrHint{\ldots primary heuristic}}
+\begin{itemize}[leftmargin=0.7cm]
+    \item Develop the core student and laundry workflow first and validate it with a small group of users.
+    \item Prioritize practical features that can work alongside the existing manual laundry process.
+    \item Improve the system based on feedback from students and laundry staff.
+\end{itemize}
+
+\section{Problem Statement}
+The current hostel laundry process involves large batches of clothes being sorted, washed, dried, ironed and finally sorted according to laundry numbers. The major problems identified are:
+\begin{itemize}[leftmargin=0.7cm]
+    \item \textbf{Misplacement:} Clothes can sometimes get mixed with another student's laundry.
+    \item \textbf{Delayed complaint resolution:} Complaints can take a long time to resolve, especially when the cloth has moved to another hostel.
+    \item \textbf{Unidentified clothes:} Laundry staff sometimes have clothes whose laundry numbers are missing or not properly identified.
+    \item \textbf{Communication gaps:} Changes in collection dates may not always reach students or caretakers on time.
+\end{itemize}
+
+\textbf{Why this matters now (contextual relevance):} A misplaced cloth can require repeated manual searching and coordination between students, laundry staff and caretakers. A digital supporting system can make identification and complaint handling more organized and accountable.
+
+\section{Proposed Solution %
+\BvrHint{\ldots Software Proposition}}
+\subsection{Overview}
+We propose \textbf{ClothTracer} ``Smart Digital Laundry Management System'' system with the following components:
+\begin{itemize}[leftmargin=0.7cm]
+    \item \textbf{Student Interface:} Upload clothing photos and enter the laundry slip number.
+    \item \textbf{Digital Laundry Record:} A record is generated using the submitted slip number and clothing information.
+    \item \textbf{Photo-Based Complaints:} Students can raise complaints and attach photos as supporting proof.
+    \item \textbf{AI-Assisted Image Matching:} Unidentified clothes can be compared with students' previously uploaded clothing photos to suggest possible matches.
+    \item \textbf{Admin/Laundry Interface:} Staff can access relevant records and manage complaints.
+     \item \textbf{Collection Notifications:} Changes in laundry collection dates can be communicated through the system.
+\end{itemize}
+
+\subsection{Core workflow}
+
+\begin{enumerate}[leftmargin=0.7cm]
+    \item Student uploads clothing photos + enters the laundry slip number
+    $\rightarrow$ Digital laundry record is generated.
+
+    \item Existing manual slip
+    $\rightarrow$ continues to be used for sorting.
+
+    \item Cloth is misplaced/unidentified
+    $\rightarrow$ Student raises a complaint + uploads photo as proof.
+
+    \item Unidentified cloth photo
+    $\rightarrow$ AI-based image matching
+    $\rightarrow$ Possible matches are suggested.
+
+    \item Possible match
+    $\rightarrow$ Verified by student/laundry staff
+    $\rightarrow$ Complaint is resolved accordingly.
+\end{enumerate}
+
+\subsection{Operational constraints}
+\begin{itemize}[leftmargin=0.7cm]
+    \item The system should support the laundry's existing hostel-wise collection schedule and batch processing.
+    
+    \item Digital records should be created only with the relevant laundry slip number and clothing details to maintain record reliability.
+    
+    \item The solution should minimize additional work for laundry staff by allowing students to take and upload photos of their own clothes.
+    
+    \item Image matching should work as an assistance mechanism, with final identification confirmed by the concerned student or laundry staff.
+    
+    \item The system should remain usable as the number of students, laundry records and stored images increases.
+\end{itemize}
+
+\section{Solution Approach %
+\BvrHint{\ldots Engineering focus}}
+
+This is an engineering course project focused on developing a practical digital workflow that supports the existing hostel laundry process and improves record management, accountability and complaint resolution.
+
+\subsection{Digital record and complaint management %
+\BvrHint{\ldots workflow support}}
+The system will provide:
+\begin{itemize}[leftmargin=0.7cm]
+    \item Student and staff authentication through Firebase Auth.
+    \item Digital laundry records linked with student details and laundry slip numbers.
+    \item Complaint submission with relevant evidence for missing or damaged clothes.
+    \item Centralized records to support easier complaint investigation and resolution.
+\end{itemize}
+
+\subsection{AI-assisted image matching %
+\BvrHint{\ldots identification assistance}}
+Image matching will be embedding-based:
+\begin{itemize}[leftmargin=0.7cm]
+    \item Generate image embeddings for stored clothing images using an image embedding model.
+    \item Compare the embedding of an unidentified cloth with stored embeddings using image similarity.
+    \item Present possible matches for verification by the student or laundry staff.
+\end{itemize}
+
+\subsection{Web architecture %
+\BvrHint{\ldots web-based solution}}
+A typical web-based architecture:
+\begin{itemize}[leftmargin=0.7cm]
+    \item \textbf{Frontend:} React-based web interface for students and laundry/admin staff.
+    \item \textbf{Backend API:} Node.js + Express for authentication integration, laundry records, complaints and application logic.
+    \item \textbf{Database:} PostgreSQL for students, staff, slip numbers, laundry records, clothes and complaints.
+    \item \textbf{Image Storage:} Cloudinary for clothing, complaint and other relevant images.
+\end{itemize}
+
+\subsection{System integration}
+The frontend, backend, database, image storage and AI matching components will communicate through APIs, providing a modular architecture that can be developed and deployed independently.
+
+\section{Evaluation Criterion %
+\BvrHint{\ldots measurable and attributable}}
+
+The effectiveness of ClothTracer will be evaluated through measurable outcomes related to complaint handling, record accuracy, image matching and usability.
+
+\subsection{Primary evaluation metric}
+
+\textbf{Complaint Resolution Time (CRT):} time taken from complaint registration to identification or resolution of the reported item.
+
+\begin{itemize}[leftmargin=0.7cm]
+    \item \textbf{Baseline:} the current manual process may require repeated record checking and, as reported during our laundry interaction, some unresolved cases can extend for weeks or even months.
+    \item \textbf{Pilot target:} achieve at least a \textbf{50\% reduction} in the time required to retrieve relevant records and investigate a complaint.
+    \item \textbf{Measurement:} compare timestamps and task completion time for selected complaints handled manually and through ClothTracer.
+\end{itemize}
+
+\subsection{Secondary evaluation metrics}
+
+\begin{itemize}[leftmargin=0.7cm]
+
+    \item \textbf{Digital Record Accuracy:}
+    Target $\geq$ \textbf{90\%} correct association of pilot laundry records with the corresponding student and slip number.
+
+    \item \textbf{AI Matching Effectiveness:}
+    Evaluate whether the correct clothing record appears within the system's \textbf{Top-5 suggested matches}; target $\geq$ \textbf{70\%} during pilot testing.
+
+    \item \textbf{Record Retrieval Time:}
+    Target retrieval of a relevant laundry record within approximately \textbf{1 minute} under normal pilot conditions.
+
+    \item \textbf{Task Completion Rate:}
+    Target $\geq$ \textbf{85\%} successful completion of core tasks such as record creation and complaint submission without assistance.
+
+    \item \textbf{User Usability:}
+    Collect student and laundry-staff feedback on a \textbf{5-point scale}, targeting an average score of at least \textbf{4/5}.
+
+\end{itemize}
+
+\subsection{Pilot validation plan %
+\BvrHint{\ldots high-level}}
+
+\begin{itemize}[leftmargin=0.7cm]
+    \item Conduct an initial pilot with approximately \textbf{10--20 students} and available laundry staff.
+    
+    \item Create sample laundry records and test representative cases involving normal submissions, complaints and unidentified clothes.
+    
+    \item Compare manual and ClothTracer-assisted record retrieval and complaint investigation using the defined metrics.
+    
+    \item Use pilot results and staff feedback to refine the workflow before wider deployment.
+\end{itemize}
+\section{Scalability %
+\BvrHint{\ldots with foresight}}
+
+The system should remain scalable as the number of students, laundry records, complaints and stored images increases.
+
+\begin{enumerate}[leftmargin=0.7cm]
+
+    \item \textbf{Scalable (theoretically):} The system should support increasing data and user load through:
+    \begin{itemize}[leftmargin=0.7cm]
+        \item separating frontend, backend and AI components,
+        \item using indexed database queries for efficient record retrieval,
+        \item using cloud storage for scalable image management.
+    \end{itemize}
+
+    \item \textbf{Operationally deployable (practically):} The system should support:
+    \begin{itemize}[leftmargin=0.7cm]
+        \item managed PostgreSQL database,
+        \item cloud-based image storage through Cloudinary,
+        \item Excel export of laundry and complaint records for administrative use,
+        \item platform-based hosting for the web application and backend.
+    \end{itemize}
+
+\end{enumerate}
+
+\section{Technology and Engine Availability}
+
+A mature set of technologies and services is available to implement ClothTracer as a web-based system:
+\begin{itemize}[leftmargin=0.7cm]
+    \item React for the responsive student and admin interface.
+    \item Node.js + Express for backend APIs and application logic.
+    \item PostgreSQL for structured laundry, student and complaint records.
+    \item Firebase Authentication for user authentication and identity management.
+    \item Cloudinary for storing clothing and complaint-related images.
+    \item Image embedding models for AI-assisted clothing image matching.
+\end{itemize}
+
+These established technologies allow the project to focus on practical workflow design, reliable record management and complaint resolution rather than developing infrastructure from scratch.
+
+
+\section{Project Scope and Deliverables %
+\BvrHint{\ldots iteration-friendly}}
+
+\subsection{Initial Deliverables %
+\BvrHint{\ldots first iteration}}
+
+\begin{itemize}[leftmargin=0.7cm]
+    \item Student and staff authentication.
+    \item Student interface for creating digital laundry records.
+    \item Laundry slip number-based record generation.
+    \item Clothing image storage and retrieval.
+    \item Basic complaint submission and management.
+    \item Admin/laundry interface for accessing relevant records.
+\end{itemize}
+
+\subsection{Subsequent Deliverables}
+
+\begin{itemize}[leftmargin=0.7cm]
+    \item AI-assisted matching for unidentified clothing.
+    \item Image-based complaint evidence and verification.
+    \item Collection-date notifications for students.
+    \item Search and filtering of laundry records.
+    \item Excel export of laundry and complaint records.
+    \item Improved administrative reports and record management.
+\end{itemize}
+
+
+\section{Risks and Mitigations}
+
+\begin{itemize}[leftmargin=0.7cm]
+    \item \textbf{Data privacy:} store only required student and clothing information and restrict access to authorized users.
+    
+    \item \textbf{Staff adoption:} keep the workflow simple and retain the existing manual slips for sorting.
+    
+    \item \textbf{Incorrect AI matches:} present AI results as possible matches requiring human verification rather than automatic identification.
+    
+    \item \textbf{Image quality:} provide basic guidelines for capturing clear clothing images.
+    
+    \item \textbf{Operational constraints:} design the system to support the existing batch-based laundry process without requiring major changes to the current workflow.
+\end{itemize}
+
+
+\section{Summary}
+
+ClothTracer proposes a practical web-based laundry management system to improve record reliability, accountability and complaint resolution in hostel laundry operations. The system supports the existing batch-based process through digital records, clothing images, structured complaint management and AI-assisted identification of unidentified clothes. It focuses on practical engineering, usability and scalability while keeping the existing laundry workflow and manual sorting process intact.
+\end{document}
